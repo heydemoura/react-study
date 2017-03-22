@@ -1,0 +1,22 @@
+{
+  "name": "react-study",
+  "description": "My ReactJS Study repo",
+  "main": "index.js",
+  "authors": [
+    "Heyde Moura <moura.heyde@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3",
+    "AdminLTE": "adminlte#^2.3.11"
+  }
+}
