@@ -26,10 +26,9 @@ class UserStore extends EventEmitter {
 	}
 
 	handleAction(action) {
-		console.log('ACTION FIRED', action)
 		switch(action.type) {
 			case 'FETCH_USERS':
-				getAll()
+				this.getAll()
 				break
 			case 'ADD_USER':
 				const { payload } = action
@@ -40,6 +39,6 @@ class UserStore extends EventEmitter {
 }
 
 const userStore = new UserStore
-dispatcher.register(userStore.handleAction.bind(this))
-window.dispatcher = dispatcher
+dispatcher.register(userStore.handleAction.bind(userStore))
+
 export default userStore 
