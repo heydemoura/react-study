@@ -4,6 +4,12 @@ import {Link} from 'react-router-dom'
 import UserStore from '../stores/userStore.js'
 
 export default class Navbar extends React.Component {
+	componentWillMount() {
+		UserStore.on('change', () => {
+			this.setState({ users: UserStore.getAll() })
+		})
+	}
+
 	render() {
 		this.state = {
 			users: UserStore.getAll()

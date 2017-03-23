@@ -17,6 +17,11 @@ class UserStore extends EventEmitter {
 	getById(id) {
 		return this.users[ id ? id : 0 ]
 	}
+
+	addNewUser(name, email) {
+		this.users.push({ name, email })
+		this.emit("change")
+	}
 }
 
 export default new UserStore

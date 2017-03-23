@@ -7,6 +7,7 @@ import Navbar from './components/navbar.js'
 // Pages
 import Index from './routes/Index.js'
 import About from './routes/About.js'
+import NewUser from './routes/NewUser.js'
 
 const App = () => {
 	return (
@@ -17,6 +18,7 @@ const App = () => {
 					<div class="container">
 						<Route exact={true} path="/" component={Index}></Route>
 						<Route path="/about/:who" component={About} />
+						<Route path="/addUser" component={NewUser} />
 					</div>
 				</div>
 			</div>
