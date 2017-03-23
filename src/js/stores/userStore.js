@@ -1,4 +1,5 @@
 import { EventEmitter } from 'events'
+import dispatcher from '../dispatcher.js'
 
 class UserStore extends EventEmitter {
 	constructor() {
@@ -9,6 +10,7 @@ class UserStore extends EventEmitter {
 			{ name: 'Konpasa', email: 'moura.heyde@gmail.com' }
 		]
 	}
+
 
 	getAll() {
 		return this.users
@@ -22,6 +24,22 @@ class UserStore extends EventEmitter {
 		this.users.push({ name, email })
 		this.emit("change")
 	}
+
+	handleAction(action) {
+		console.log('ACTION FIRED', action)
+		switch(action.type) {
+			case 'FETCH_USERS':
+				getAll()
+				break
+			case 'ADD_USER':
+				const { payload } = action
+				this.addNewUser(action.payload.name, action.payload.email)
+				break
+		}
+	}
 }
 
-export default new UserStore
+const userStore = new UserStore
+dispatcher.register(userStore.handleAction.bind(this))
+window.dispatcher = dispatcher
+export default userStore 

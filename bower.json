@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "bootstrap": "3",
-    "AdminLTE": "adminlte#^2.3.11"
+    "AdminLTE": "adminlte#^2.3.11",
+    "font-awesome": "^4.7.0"
   }
 }

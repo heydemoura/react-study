@@ -2,6 +2,7 @@ import { assign } from 'lodash'
 import React from 'react'
 
 import UserStore from '../stores/userStore.js'
+import * as UserActions from '../actions/UserActions.js'
 
 export default class Layout extends React.Component {
 	constructor(props) {
@@ -12,19 +13,16 @@ export default class Layout extends React.Component {
 	}
 
 	handleChange(e) {
-		const newUserState = assign({}, this.state.user, {
+		const user = assign({}, this.state.user, {
 			[e.target.name]: e.target.value
 		})	
 
-		this.setState({
-			user: newUserState 
-		})	
+		this.setState({user})	
 	}
 
 	handleSubmit(e) {
 		e.preventDefault()
-		UserStore.addNewUser(this.state.user.name, this.state.user.email)
-		console.log(UserStore.getAll())
+		UserActions.addUser(this.state.user.name, this.state.user.email)
 	}
 
 	render() {
